@@ -1,0 +1,388 @@
+/* General */
+
+html {
+  height: 100%;
+  overflow-y: hidden
+}
+
+body {
+  background-image: url("http://wow.zamimg.com/uploads/screenshots/normal/608507.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  overflow-y: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Frames */
+
+.frame {
+  color: white;
+  padding: 5px;
+  height: 100%;
+  background-color: black;
+  opacity: 0.7;
+  border: 1px solid white;
+  box-shadow: 5px 10px 5px black;
+}
+
+/* Battle Container - Character and Enemy Pictures with VS between */
+
+@media (max-width: 1024px) {
+  .header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  #battles {
+    position: fixed;
+    top: 5%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .footer-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+/* Infos & Logs */
+
+#char-info,
+#char-log,
+#char-spell,
+#enemy-log,
+#enemy-info,
+#upgrade-log,
+.items-info {
+  color: white;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.9;
+  border: 1px solid white;
+  box-shadow: 5px 10px 5px black;
+}
+
+#char, #upgrade {
+  opacity: 0.9;
+  background-image: url(http://getwallpapers.com/wallpaper/full/f/f/5/556855.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#char-logs,
+#enemy-logs,
+#upgrade-logs {
+  overflow-y: auto;
+  height: 250px;
+  width: auto;
+}
+
+#upgrade {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 400px;
+  width: auto;
+}
+
+hr {
+  background-color: white;
+}
+
+.footer-container2 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.potion-logs {
+  color: red;
+}
+
+.buff-logs {
+  color: orange;
+}
+
+.skill-logs {
+  color: yellow;
+}
+
+.enemyAttack-logs {
+  color: red;
+}
+
+.enemyAttackCritical-logs {
+  color: orange;
+}
+
+.enemyHeal-logs {
+  color: green;
+}
+
+/* Spell Slots */
+
+#reset {
+  display: none;
+}
+
+#slot1,
+#slot2,
+#slot3,
+#slot4,
+#slot5,
+#slot6,
+#slot7,
+/* Inventory Slots */
+
+.inv-slot,
+.char-slots {
+  color: white;
+  display: inline-block;
+  border: 1px solid white;
+  height: 60px;
+  width: 60px;
+}
+
+#slot1:hover,
+#slot2:hover,
+#slot3:hover,
+#slot4:hover,
+#slot5:hover,
+#slot6:hover,
+#slot7:hover,
+/* Inventory Slots Hover */
+
+.inv-slot:hover,
+/* Character Slots */
+
+.char-slots:hover {
+  border: 1px solid red;
+  opacity: 0.4;
+}
+
+#skill1,
+#skill2,
+#skill3,
+#skill4,
+#skill5,
+#skill6,
+#skill7 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  width: 60px;
+  height: 60px;
+}
+
+#skill1 {
+  background-image: url("http://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_62.jpg");
+}
+
+#skill2 {
+  background-image: url("http://wow.zamimg.com/images/wow/icons/large/inv_weapon_glave_01.jpg");
+}
+
+#skill3 {
+  background-image: url("http://wow.zamimg.com/images/wow/icons/large/ability_demonhunter_throwglaive.jpg");
+}
+
+#skill4 {
+  background-image: url("http://wow.zamimg.com/images/wow/icons/large/ability_warrior_improveddisciplines.jpg");
+}
+
+#skill5 {
+  background-image: url("http://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowworddominate.jpg");
+}
+
+#skill6 {
+  background-image: url("http://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_red.jpg");
+}
+
+#skill7 {
+  background-image: url("http://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_blue.jpg");
+}
+
+/* Buff Cooldown */
+
+#enrage-cd,
+#avatar-cd,
+#berserk-cd {
+  animation-name: fade;
+  animation-duration: 10s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.3;
+  }
+}
+
+/* Inventory */
+
+.table {
+  color: white;
+  height: auto;
+  background-color: black;
+  border: 1px solid white;
+  box-shadow: 5px 10px 5px black;
+}
+
+.itemDropped {
+  color: red;
+  font-weight: bolder;
+}
+
+#legendary {
+  border: 1px solid orange;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#epic {
+  border: 1px solid purple;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#common {
+  border: 1px solid gray;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Side Nav */
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-image: url("../resources/images/bg2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.something {
+  border: 1px solid white;
+  background-color: black;
+  opacity: 0.7;
+  background-image: url(http://getwallpapers.com/wallpaper/full/4/0/0/654111.jpg)
+}
+
+#invCharDisplay {
+  border: 1px solid white;
+  background-image: url(http://getwallpapers.com/wallpaper/full/4/2/e/53357.jpg)
+}
+
+
+/* Modal */
+
+.form-signin {
+  color: white;
+  width: 100%;
+  max-width: 50%;
+  padding: 1%;
+  margin: auto;
+  border: 25px solid transparent;
+  border-image: url(../resources/images/frame.png) 30 round;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+hr {
+  background-color: white;
+}
+
+
+.choose-image {
+  display: inline-block;
+  height: 134px;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+  width: 100%;
+  border-radius: 200px;
+  outline: none;
+  border: none;
+  border: 5px solid white;
+}
+
+.choose-image:hover {
+  border: 5px solid green;
+  box-shadow: 0 0 5px 3px green, 0 0 5px 0 green;
+  opacity: 0.7
+}
+
+
+.choose-image img {
+  display: block;
+  height: 130px;
+  width: 100%;
+  border-radius: 200px;
+}
+
+.modal-dialog {
+  min-width: 100%;
+}
+

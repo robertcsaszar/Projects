@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>RPG Game v1</title>
+  <!-- Reset Css Default -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <!-- W3 Schools CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- Bootstrap v4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/choose.css">
+  <!-- Bootstrap v4 Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <!-- Custom Scripts -->
+  <script src="assets/js/characters/createCharacter.js"></script>
+  <script src="assets/js/connection.js"></script>
+  <script src="assets/js/characters/saveCharacters.js"></script>
+  <link rel="icon" href="assets/resources/images/favicon.ico" type="image/x-icon" />
+
+</head>
+
+<body class="text-center">
+  <form class="form-signin" action="play.html">
+    <div class="tab2">
+      <h1 class="h3 mb-3 font-weight-normal">Enter your name</h1>
+      <label for="inputName" class="sr-only">Name</label>
+      <input type="fname" id="inputName" class="form-control" placeholder="Your Name" required autofocus>
+    </div>
+    <hr>
+    <div class="tab2">
+      <h1 class="h3 mb-3 font-weight-normal">Choose character</h1>
+      <div class="checkbox mb-3">
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optradio" >
+            <img  class="choose-image m-2" src="https://78.media.tumblr.com/68a85e1f513966f3628dbd7b98214655/tumblr_oyvfk0szGg1uaiqeco3_500.gif" onclick="sylvanasCheck()">
+          </label>
+          <label class="form-check-label">
+            <input id="maiev" type="radio" class="form-check-input" name="optradio">
+            <img  class="choose-image m-2" src="https://78.media.tumblr.com/84b3d214ebd88f200b9eb4cb13980b09/tumblr_obpqmfjfQO1su16x5o4_540.gif" onclick="maievCheck()">
+          </label>
+          <label class="form-check-label">
+            <input id="illidan" type="radio" class="form-check-input" name="optradio">
+            <img  class="choose-image m-2" src="https://i.pinimg.com/originals/7f/9b/f8/7f9bf86824a1d2d31cfaf2736eeffad9.gif" onclick="illidanCheck()">
+          </label>
+          <!--           <button id="sylvanas" class="choose-image m-2"><img src="https://78.media.tumblr.com/68a85e1f513966f3628dbd7b98214655/tumblr_oyvfk0szGg1uaiqeco3_500.gif" onclick="save()"></button>
+          <button id="maiev" class="choose-image m-2"><img src="https://78.media.tumblr.com/84b3d214ebd88f200b9eb4cb13980b09/tumblr_obpqmfjfQO1su16x5o4_540.gif" onclick="save()"></button>
+          <button id="illidan" class="choose-image m-2"><img src="https://i.pinimg.com/originals/7f/9b/f8/7f9bf86824a1d2d31cfaf2736eeffad9.gif" onclick="save()"></button> -->
+        </div>
+        <hr>
+        <button class="btn btn-lg btn-success btn-block" type="submit" onclick="save()">Play</button>
+      </div>
+      <br>
+    </div>
+  </form>
+</body>
+
+</html>

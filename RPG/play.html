@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>RPG Game v1</title>
+  <!-- Reset Css Default -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <!-- W3 Schools CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- Bootstrap v4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Bootstrap v4 Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <!-- Custom Scripts -->
+  <script src="assets/js/save.js"></script>
+  <script src="assets/js/load.js"></script>
+  <script src="assets/js//player/player.js"></script>
+  <script src="assets/js/player/money.js"></script>
+  <script src="assets/js/enemy/enemy.js"></script>
+  <script src="assets/js/characters/items.js"></script>
+  <script src="assets/js/characters/characters.js"></script>
+  <script src="assets/js/characters/upgrade.js"></script>
+  <script src="assets/js/characters/panel.js"></script>
+  <script src="assets/js/characters/levelup.js"></script>
+  <script src="assets/js/characters/sounds.js"></script>
+  <script src="assets/js/characters/spells.js"></script>
+  <script src="assets/js/characters/cooldowns.js"></script>
+  <script src="assets/js/enemy/enemyAttack.js"></script>
+  <script src="assets/js/battle/battle.js"></script>
+  <script src="assets/js/battle/gameover.js"></script>
+  <link rel="icon" href="assets/resources/images/favicon.ico" type="image/x-icon" />
+</head>
+
+<body onload="loadPlayers(), loadSelection(), loadCharacters(), battle()">
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-pills something">
+            <li class="active"><a data-toggle="pill" href="#home">Character</a></li>
+            <li><a data-toggle="pill" href="#menu1">Upgrade Items</a></li>
+            <li><a data-toggle="pill" href="#menu2">Talents</a></li>
+          </ul>
+          <br>
+          <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+
+              <div class="table w3-animate-opacity" id="char">
+                <h4 class="mt-2">Character</h4>
+                <hr>
+                <div class="row text-cemter mb-4">
+                  <div class="col-md-1">
+                    <ul class="ml-1 mt-5">
+                      <div class="char-slots helm"></div>
+                      <li class="char-slots amulet"></li>
+                      <li class="char-slots shoulder"></li>
+                      <li class="char-slots chest"></li>
+                      <li class="char-slots back"></li>
+                      <li class="char-slots wrist"></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-3 text-center mt-3" id="invCharDisplay"></div>
+                  <div class="col-md-1">
+                    <ul class="mt-5">
+                      <li class="char-slots gloves"></li>
+                      <li class="char-slots waist"></li>
+                      <li class="char-slots pants"></li>
+                      <li class="char-slots boots"></li>
+                      <li class="char-slots ring"></li>
+                      <li class="char-slots weapon"></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-7">
+                    <h3>Stats</h3>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="menu1" class="tab-pane fade justify-content-center">
+              <div class="table w3-animate-opacity" id="upgrade">
+                <h4 class="mt-2">Upgrade Items</h4>
+                <hr>
+                <div class="row justify-content-center">
+                  <div class="col-md-3 mb-3">
+                    <div class="items-info">
+                      <h4 class="mt-2">Helm</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots helm"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="helmName"></h6>
+                              <ul>
+                                <li>Quality: <span id="helmQuality"></span></li>
+                                <li>Upgrade level: <span id="helmUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="helmBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button  type="button" class="btn btn-warning m-2" onclick="helmUpgrade()">Upgrade Helm</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="items-info">
+                      <h4 class="mt-2">Amulet</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots amulet"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="amuletName"></h6>
+                              <ul>
+                                <li>Quality: <span id="amuletQuality"></span></li>
+                                <li>Upgrade level: <span id="amuletUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="amuletBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="amuletUpgrade()">Upgrade Amulet</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="items-info">
+                      <h4 class="mt-2">Shoulder</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots shoulder"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="shoulderName"></h6>
+                              <ul>
+                                <li>Quality: <span id="shoulderQuality"></span></li>
+                                <li>Upgrade level: <span id="shoulderUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="shoulderBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="shoulderUpgrade()">Upgrade Shoulder</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-md-3 mb-3">
+                    <div class="items-info">
+                      <h4 class="mt-2">Chest</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots chest"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="chestName"></h6>
+                              <ul>
+                                <li>Quality: <span id="chestQuality"></span></li>
+                                <li>Upgrade level: <span id="chestUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="chestBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="chestUpgrade()">Upgrade Chest</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="items-info">
+                      <h4 class="mt-2">Back</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots back"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="backName"></h6>
+                              <ul>
+                                <li>Quality: <span id="backQuality"></span></li>
+                                <li>Upgrade level: <span id="backUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="backBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="backUpgrade()">Upgrade Back</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="items-info">
+                      <h4 class="mt-2">Wrist</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots wrist"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="wristName"></h6>
+                              <ul>
+                                <li>Quality: <span id="wristQuality"></span></li>
+                                <li>Upgrade level: <span id="wristUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="wristBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="wristUpgrade()">Upgrade Wrist</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-md-3 mb-3">
+                    <div class="items-info">
+                      <h4 class="mt-2">Boots</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots boots"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="bootsName"></h6>
+                              <ul>
+                                <li>Quality: <span id="bootsQuality"></span></li>
+                                <li>Upgrade level: <span id="bootsUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="bootsBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="bootsUpgrade()">Upgrade Boots</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="items-info">
+                      <h4 class="mt-2">Waist</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots waist"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="waistName"></h6>
+                              <ul>
+                                <li>Quality: <span id="waistQuality"></span></li>
+                                <li>Upgrade level: <span id="waistUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="waistBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="waistUpgrade()">Upgrade Waist</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="items-info">
+                      <h4 class="mt-2">Gloves</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots gloves"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="glovesName"></h6>
+                              <ul>
+                                <li>Quality: <span id="glovesQuality"></span></li>
+                                <li>Upgrade level: <span id="glovesUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="glovesBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="glovesUpgrade()">Upgrade Gloves</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-md-3 mb-4">
+                    <div class="items-info">
+                      <h4 class="mt-2">Pants</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots pants"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="pantsName"></h6>
+                              <ul>
+                                <li>Quality: <span id="pantsQuality"></span></li>
+                                <li>Upgrade level: <span id="pantsUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="pantsBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="pantsUpgrade()">Upgrade Pants</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-4">
+                    <div class="items-info">
+                      <h4 class="mt-2">Ring</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots ring"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="ringName"></h6>
+                              <ul>
+                                <li>Quality: <span id="ringQuality"></span></li>
+                                <li>Upgrade level: <span id="ringUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="ringBonus">2</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="ringUpgrade()">Upgrade Ring</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-4">
+                    <div class="items-info">
+                      <h4 class="mt-2">Weapon</h4>
+                      <hr>
+                      <div class="item-info">
+                        <div class="row">
+                          <div class="col-md-6 mt-3"><span class="char-slots weapon"></span></div>
+                          <div class="col-md-6">
+                            <div>
+                              <h6 id="weaponName"></h6>
+                              <ul>
+                                <li>Quality: <span id="weaponQuality"></span></li>
+                                <li>Upgrade level: <span id="weaponUpgrade"></span></li>
+                              </ul>
+                              <p>Increase defense by <span id="weaponBonus">5</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-warning m-2" onclick="weaponUpgrade()">Upgrade Weapon</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <br>
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <div id="upgrade-log">
+                        <h4 class="mt-2">Upgrader Logs:</h4>
+                        <hr>
+                        <div id="upgrade-logs"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="container-fluid header-container">
+    <div class="row text-center mt-3">
+      <div class="col-sm-6 col-md-6">
+        <div class="frame">
+          <span>Player: <span id="playerName"></span></span>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6">
+        <div class="frame">
+          <span>Enemy: Fasaki</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid" id="battles">
+    <div class="row text-center mt-2">
+      <div class="col-sm-4 col-md-4" id="displayChar">
+      </div>
+      <div class="col-sm-4 col-md-4 mt-5">
+        <img src="assets/resources/images/vs.png" id="vs" class="img-fluid mt-5 w3-animate-opacity" alt="character" />
+        <div class="table w3-animate-opacity">
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="mt-2">Char Buffs</h4>
+              <hr>
+              <div class="buff mb-3" id="buff-cd"></div>
+            </div>
+            <div class="col-md-6">
+              <h4 class="mt-2">Enemy Buffs</h4>
+              <hr>
+              <div class="mb-3 enemy-buff" id="enemy-buff-cd"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-sm-4 col-md-4">
+        <img src="assets/resources/images/npc/bosses/enemy.png" class="img-fluid w3-animate-opacity" alt="character" />
+      </div>
+    </div>
+  </div>
+
+  <footer class="container-fluid mt-5 mb-3 footer-container">
+    <div class="row mt-5">
+      <div class="col-sm-6 col-md-2">
+        <div id="char-info">
+          <div class="text-center">
+            <span>Character Informations:</span>
+            <hr>
+          </div>
+          <ul id="char-stats">
+            <li class="ml-2 stats">Level: <span id="level"></span></li>
+            <li class="ml-2 stats">Attack: <span id="attack"></span></li>
+            <li class="ml-2 stats">Defense: <span id="defense"></span></li>
+            <li class="ml-2 stats">Critical Damage: <span id="critDmg"></span></li>
+            <li class="ml-2 stats">Resist Critical Damage: <span id="resistCritDmg"></span></li>
+            <li class="ml-2 stats">Money: <span id="money"></span></li>
+            <hr>
+            <li class="ml-2 mr-2 stats">HP
+              <div class="progress">
+                <div class="progress-bar bg-danger char-hp" style="width:100%"><span id="charShowHp">100%</span></div>
+              </div>
+            </li>
+            <li class="ml-2 mr-2 stats">Mana
+              <div class="progress">
+                <div class="progress-bar char-mana" style="width:100%"><span id="charShowMana">100%</span></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-2 text-center">
+        <div id="char-log">
+          <span>Character Logs:</span>
+          <hr>
+          <div id="char-logs"></div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 text-center">
+        <div id="char-spell">
+          <span>Character Spells: </span>
+          <hr>
+          <ul id="spell-slots text-center">
+            <li id="slot1" title="Quickly attack for 5 damage. Cooldown 3 seconds."><button class="playSound" id="skill1"></button></li>
+            <li id="slot2" title="Slice your target for 15 damage. Cooldown 7 seconds."><button id="skill2"></button></li>
+            <li id="slot3" title="Throw a demonic glaive at the target, dealing 10 damage. Cooldown 5 seconds."><button id="skill3"></button></li>
+            <li id="slot4" title="Increase your armor by 10 for 8 seconds. Cooldownn 30 seconds."><button id="skill4"></button></li>
+            <li id="slot5" title="Increase your attack by 10 for 8 seconds. Cooldown 30 seconds."><button id="skill5"></button></li>
+            <li id="slot6" title="Restores 50 health."><button id="skill6"></button></li>
+            <li id="slot7" title="Restores 25 mana."><button id="skill7"></button></li>
+          </ul>
+          <button type="button" class="btn btn-warning" id="reset">Reset Battle</button>
+          <hr>
+          <h4>XP Bar</h4>
+          <div class="progress ml-2 mr-2 mt-3">
+            <div class="progress-bar progress-bar-striped progress-bar-animated xp-bar" style="width:0%"></div>
+          </div>
+          <hr>
+          <div class="buttons">
+            <button type="button" class="btn btn-warning m-2" id="char-button" onclick="openNav()" title="Open character info.">Character</button>
+            <button type="button" class="btn btn-warning m-2" id="start-button" onclick="start()">Start Battke</button>
+            <button type="button" class="btn btn-warning m-2" id="save-button" onclick="saveCharacters(), savePlayers()">Save</button>
+            <button type="button" class="btn btn-warning m-2" id="enemy-button" onclick="enemyLevelUp()" title="Increase level by 1 and stats by 5.">Enemy Level Up</button>
+            <button type="button" class="btn btn-warning m-2" id="reset-button" onclick="resetStats()" title="Reset Stats & Level.">Reset Enemy</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-2 text-center">
+        <div id="enemy-log">
+          <span>Enemy Logs:</span>
+          <hr>
+          <div id="enemy-logs"></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-2">
+        <div id="enemy-info">
+          <div class="text-center">
+            <span>Enemy Informations:</span>
+            <hr>
+          </div>
+          <ul id="enemy-stats">
+            <li class="ml-2 stats">Level: <span id="enemyLevel"></span></li>
+            <li class="ml-2 stats">Attack: <span id="enemyAttack"></span></li>
+            <li class="ml-2 stats">Defense: <span id="enemyDef"></span></li>
+            <li class="ml-2 stats">Critical Damage: <span id="enemyCrit"></span></li>
+            <li class="ml-2 stats">Resist Critical Damage: <span id="enemyCritResist"></span></li>
+            <hr>
+            <li class="ml-2 mr-2 stats">HP
+              <div class="progress">
+                <div class="progress-bar bg-danger enemy-hp" style="width:100%" aria-valuemin="0" aria-valuemax="100"><span id="enemyShowHp">100%</span></div>
+              </div>
+            </li>
+            <li class="ml-2 mr-2 stats">Mana
+              <div class="progress">
+                <div class="progress-bar enemy-mana" style="width:100%"><span id="enemyShowMana">100%</span></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+
+  <!-- Enter your name & Choose character Modal -->
+  <div class="modal fade" id="myModal">
+    <form class="form-signin">
+      <div class="tab2">
+        <div class="text-center">
+          <h3>Hello stranger! Since you are new in this game you do not have any saved progress!</h3>
+          <hr>
+        </div>
+        <h3 class="h3 mb-3 font-weight-normal">Enter your name</h3>
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="fname" id="inputName" class="form-control" placeholder="Your Name" required autofocus>
+      </div>
+      <hr>
+      <div class="tab2">
+        <h3 class="h3 mb-3 font-weight-normal">Choose character</h3>
+        <div class="checkbox mb-3">
+          <div class="form-check-inline">
+            <label class="form-check-label">
+            <input id="sylvanas" type="radio" class="form-check-input" name="character" >
+            <img  class="choose-image m-2" src="https://78.media.tumblr.com/68a85e1f513966f3628dbd7b98214655/tumblr_oyvfk0szGg1uaiqeco3_500.gif" onclick="sylvanasCheck()">
+          </label>
+            <label class="form-check-label">
+            <input id="maiev" type="radio" class="form-check-input" name="character">
+            <img  class="choose-image m-2" src="https://78.media.tumblr.com/84b3d214ebd88f200b9eb4cb13980b09/tumblr_obpqmfjfQO1su16x5o4_540.gif" onclick="maievCheck()">
+          </label>
+            <label class="form-check-label">
+            <input id="illidan" type="radio" class="form-check-input" name="character">
+            <img  class="choose-image m-2" src="https://i.pinimg.com/originals/7f/9b/f8/7f9bf86824a1d2d31cfaf2736eeffad9.gif" onclick="illidanCheck()">
+          </label>
+          </div>
+          <hr>
+          <button class="btn btn-lg btn-success btn-block" type="submit" onclick="savePlayers(), saveSelection(), saveCharacters()">Play</button>
+        </div>
+        <br>
+      </div>
+    </form>
+  </div>
+
+  <!-- Enter your name & Choose character Modal -->
+  <div class="modal fade" id="myModal2">
+    <form class="form-signin" action="play.html">
+      <div class="text-center modal-dialog">
+        <h3>Game has been successfully saved!</h3>
+        <hr>
+        <button class="btn btn-lg btn-success btn-block" type="submit">Ok</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+
+</html>

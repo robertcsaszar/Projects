@@ -1,0 +1,54 @@
+
+.form-signin {
+  color: white;
+  width: 100%;
+  max-width: 50%;
+  padding: 1%;
+  margin: auto;
+  border: 25px solid transparent;
+  border-image: url(../resources/images/frame.png) 30 round;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+hr {
+  background-color: white;
+}
+
+
+.choose-image {
+  display: inline-block;
+  height: 134px;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+  width: 100%;
+  border-radius: 200px;
+  outline: none;
+  border: none;
+  border: 5px solid white;
+}
+
+.choose-image:hover {
+  border: 5px solid green;
+  box-shadow: 0 0 5px 3px green, 0 0 5px 0 green;
+  opacity: 0.7
+}
+
+
+.choose-image img {
+  display: block;
+  height: 130px;
+  width: 100%;
+  border-radius: 200px;
+}
+
+.modal-dialog {
+  min-width: 100%;
+}
