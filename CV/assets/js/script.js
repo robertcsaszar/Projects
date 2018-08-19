@@ -11,10 +11,49 @@ function scrollFunction() {
   }
 }
 
+
+// Nav Bar Smooth Scroll //
+
+function homeFunction() {
+  $('body, html').animate({
+    scrollTop: $('#top-container ').offset().top
+  }, 1000);
+}
+
+function aboutFunction() {
+  $('body, html').animate({
+    scrollTop: $('#personal-container ').offset().top
+  }, 1000);
+}
+
+function skillsFunction() {
+  $('body, html').animate({
+    scrollTop: $('#background2 ').offset().top
+  }, 1000);
+}
+
+function careerFunction() {
+  $('body, html').animate({
+    scrollTop: $('#resume-container ').offset().top
+  }, 1000);
+}
+
+function portfolioFunction() {
+  $('body, html').animate({
+    scrollTop: $('#portfolio-container ').offset().top
+  }, 1000);
+}
+
+function contactFunction() {
+  $('body, html').animate({
+    scrollTop: $('#background4 ').offset().top
+  }, 1000);
+}
+
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  $('body', document).animate({
-    scrollTop: 0
+  $('body, html').animate({
+    scrollTop: $('#top-container ').offset().top
   }, 1000);
 }
 
@@ -55,10 +94,10 @@ function animateMe(elem) {
 }
 
 // Skill bar Animation //
-$(document).ready(function(){
-	$('.skills_wrapper > .skills-item').each(function(){
-		$(this).find('.diagram > span').delay(2500).animate({
-			width:$(this).data("level")+"%"
-		},3000);
-	});
+$(document).ready(function() {
+  $('.skills_wrapper > .skills-item').each(function() {
+    $(this).find('.diagram > span').delay(2500).animate({
+      width: $(this).data("level") + "%"
+    }, 3000);
+  });
 });
