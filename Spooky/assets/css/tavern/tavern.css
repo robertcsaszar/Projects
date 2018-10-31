@@ -1,0 +1,9 @@
+tbody {
+  height: 200px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+th, td {
+  vertical-align: middle !important;
+}
