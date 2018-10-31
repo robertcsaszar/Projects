@@ -1,0 +1,32 @@
+/* ---------------------------------------------------
+                    		Login Modal
+----------------------------------------------------- */
+
+#login-head {
+  position: relative;
+}
+
+#login-head video {
+  position: relative;
+}
+
+#login-head img {
+  position: absolute;
+  bottom: 17px;
+  left: 18px;
+  width: 93%;
+  height: 88%;
+}
+
+/* ---------------------------------------------------
+                    		Register Modal
+----------------------------------------------------- */
+
+#register-head img {
+  background-image: linear-gradient(180deg, #000000 0%, #a85719 100%);
+}
+
+
+/* ---------------------------------------------------
+                    		Login Button
+----------------------------------------------------- */

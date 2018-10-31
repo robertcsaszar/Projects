@@ -1,0 +1,350 @@
+p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.navbar {
+  position: fixed;
+  padding: 10px 10px;
+  background-color: #f6f6f6;
+  background-image: -webkit-linear-gradient(#f6f6f6 0%, white 45%);
+  background-image: linear-gradient(#f6f6f6 0%, white 45%);
+  width: 100%;
+  z-index: 1;
+  border: none;
+  border-radius: 0;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+  box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #ddd;
+  margin: 40px 0;
+}
+
+i,
+span {
+  display: inline-block;
+}
+
+/* ---------------------------------------------------
+                   SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar {
+  position: fixed;
+  min-width: 230px;
+  max-width: 230px;
+/*   padding-top: 94px; */
+  height: 100%;
+  background: #1a1a1a;
+  color: #fff;
+  transition: all 0.3s;
+  overflow-x: hidden;
+  opacity: 1;
+  border-right: 1px solid #ddd;
+}
+
+#sidebar.active {
+  min-width: 80px;
+  max-width: 80px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+#sidebar.active a span {
+  display: none;
+}
+
+#sidebar.active #content {
+  padding-left: 250px;
+}
+
+#sidebar.active .sidebar-header strong {
+  display: none;
+}
+
+#sidebar.active ul li a {
+  animation: fadeIn 2s;
+}
+
+
+#sidebar ul li a {
+  text-align: left;
+}
+
+#sidebar.active ul li a {
+  padding: 10px 10px;
+  text-align: center;
+  font-size: 1.85em;
+}
+
+#sidebar.active ul li a i {
+  margin-right: 0;
+  display: block;
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+#sidebar.active ul ul a {
+  padding: 10px !important;
+}
+
+#sidebar.active .dropdown-toggle::after {
+  top: auto;
+  bottom: 10px;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #1a1a1a;
+}
+
+#sidebar .sidebar-header strong {
+  display: none;
+  font-size: 1.8em;
+}
+
+/* #sidebar.active ul.components {
+  padding: 41px 0;
+} */
+
+#sidebar ul li a {
+  padding: 5px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  color: black;
+  background: #fff;
+}
+
+#sidebar ul li a i {
+  margin-right: 10px;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: black;
+  background: white;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #262626;
+}
+
+#navbarSupportedContent>ul:nth-child(2)>li>a>svg {
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 30px;
+  padding-left: 5px;
+  border-left: 1px solid #ddd;
+  color: grey;
+}
+
+#navbarSupportedContent>ul:nth-child(2)>li>a>svg:hover {
+  color: black;
+}
+
+#navbarSupportedContent>ul:nth-child(2)>li:nth-child(2)>a>svg {
+  margin-left: -5px;
+}
+
+#navbarSupportedContent>ul:nth-child(2)>li>a>img {
+  margin-top: -15px;
+  border-left: 1px solid #ddd;
+  padding-left: 5px;
+}
+
+#navbarSupportedContent>ul:nth-child(2)>li>a>span {
+  position: absolute;
+  background-color: red;
+  color: white;
+  top: 10px;
+  right: 60px;
+}
+
+#navbarSupportedContent>ul.list-unstyled.list-inline>li:nth-child(1)>a>span {
+  position: absolute;
+  background-color: red;
+  color: white;
+  top: 10px;
+  right: 100px;
+}
+
+/* ---------------------------------------------------
+                  User Info
+----------------------------------------------------- */
+
+#avatar > img {
+  background-color: #dfdfdf;
+  margin-left: 10px;
+  margin-top: 7px;
+  border: 1px solid black;
+}
+
+.class {
+  font-family: "Quattrocento", Sans-serif;
+  font-size: 16px;
+  display: block;
+  color: grey;
+  font-weight: bold;
+}
+
+.status {
+  font-family: "Quattrocento", Sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #00ce68;
+  padding: 2px;
+  display: block;
+}
+
+#user-stats p,
+#user-energy p,
+#user-stats p > span,
+#user-energy p > span{
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+#energy-bar {
+  width: 200px;
+  margin-left: 10px;
+}
+
+#energy-bar > div {
+  background-color: red;
+}
+
+#userOnline.active #user-status .name,
+#userOnline.active #user-status .class,
+#userOnline.active .separator,
+#userOnline.active h3,
+#userOnline.active #user-energy #energy-bar,
+#userOnline.active #user-stats > p:nth-child(0),
+#userOnline.active #user-stats > p:nth-child(1),
+#userOnline.active #user-stats > p:nth-child(2),
+#userOnline.active #user-stats > p:nth-child(3),
+#userOnline.active #user-stats > p:nth-child(4){
+  display: none;
+}
+
+#userOnline.active #avatar > img {
+  margin-left: 5px;
+}
+
+#userOnline.active #user-status {
+  display: block;
+  margin-top: 84px;
+  margin-left: -41px;
+}
+
+#userOnline.active #user-energy p{
+  margin-left: -2px;
+}
+
+#userOnline.active #user-energy p > span{
+  margin-left: 1px;
+}
+
+#userOnline.active #user-stats > p:nth-child(5) {
+  margin-left: -2px;
+  margin-top: -14px;
+}
+
+#userOnline.active #user-stats > p:nth-child(5) > span {
+  margin-left: 1px;
+}
+
+#userOnline.active > div.text-center.mt-3 > a > div > div.float-left.ml-4 > img {
+  margin-left: 5px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+/* ---------------------------------------------------
+                    User Log out
+----------------------------------------------------- */
+
+#logout-btn,
+#notif,
+#mess,
+#createCharBtn{
+  display: none;
+}
+
+/* ---------------------------------------------------
+               Nav Icons & Nav links & Logo
+----------------------------------------------------- */
+
+#nav-logo.active h3 {
+  display: none;
+}
+
+.nav-img,
+#avatar > img {
+  background-color: #dfdfdf;
+  border: 2px solid #ddd;
+  width: 50px
+}
+
+#nav-links.active .nav-img {
+  width: 50px;
+}
+
+
+/* ---------------------------------------------------
+                  Social
+----------------------------------------------------- */
+
+#social {
+  font-size: 30px;
+  color: #ff7800;
+}
+
+#social > li > a:hover {
+  color: #ffae00;
+}
